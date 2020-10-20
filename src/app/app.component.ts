@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InfoMsgService } from './_shared/info-msg/info-msg.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Front-EnglishLearning';
+  title = 'EnglishLearning';
+
+
 }

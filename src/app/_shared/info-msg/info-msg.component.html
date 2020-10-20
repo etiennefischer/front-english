@@ -1,0 +1,10 @@
+<div class="notification is-warning" *ngIf="infoMsg.messages.length">
+
+
+  <button class="delete"
+          (click)="infoMsg.clear()">clear</button>
+  <div *ngFor='let message of infoMsg.messages'> <strong>{{message}}</strong> </div>
+
+</div>
+
+
