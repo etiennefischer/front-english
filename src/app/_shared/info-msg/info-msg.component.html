@@ -1,10 +1,14 @@
-<div class="notification is-warning" *ngIf="infoMsg.messages.length">
-
+<div class="notification" [ngClass]="{'is-warning':infoMsg.messages[0][1]=== '0' , 'is-success':infoMsg.messages[0][1]==='1' }"
+     *ngIf="infoMsg.messages.length" >
+<!--  [ngClass]="{-->
+<!--  'notification':true,-->
+<!--  'is-warning':infoMsg.typeOf===0,-->
+<!--  'is-success':infoMsg.typeOf===1,-->
+<!--  }"-->
 
   <button class="delete"
           (click)="infoMsg.clear()">clear</button>
-  <div *ngFor='let message of infoMsg.messages'> <strong>{{message}}</strong> </div>
+  <div *ngFor='let message of infoMsg.messages'> <strong>{{message[0]}}</strong> </div>
 
 </div>
-
 

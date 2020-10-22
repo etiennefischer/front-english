@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class InfoMsgService {
-  messages: string[] = [];
+  messages: [] = [];
+  typeOf: string;
 
-  add(message: string): void {
-    this.messages.push(message);
+  add(message: string , typeOfMessage: string): void {
+    // @ts-ignore
+    this.messages.push( [ message , typeOfMessage ] );
   }
 
   clear(): void {

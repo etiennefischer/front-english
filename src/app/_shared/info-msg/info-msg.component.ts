@@ -11,7 +11,8 @@ export class InfoMsgComponent implements OnInit {
   constructor(public infoMsg: InfoMsgService) { }
 
   ngOnInit(): void {
-    this.infoMsg.add('Zouzou');
+    this.infoMsg.add('Zouzou', '1');
+    // console.log(this.infoMsg);
 
   }
 
