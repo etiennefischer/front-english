@@ -2,6 +2,8 @@ School project 20/10/2020
 
 # FrontEnglishLearning
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8b6352b75c5f4e9a965136e2e47ec141)](https://app.codacy.com/gh/kouzty/front-english?utm_source=github.com&utm_medium=referral&utm_content=kouzty/front-english&utm_campaign=Badge_Grade)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
 
 ## Development server
