@@ -7,6 +7,7 @@ import { HeaderComponent } from './_shared/header/header.component';
 import { FooterComponent } from './_shared/footer/footer.component';
 import { InfoMsgComponent } from './_shared/info-msg/info-msg.component';
 import { ExercicesComponent } from './exercices/exercices/exercices.component';
+import { LevelAssessComponent } from './level-assess/level-assess.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ExercicesComponent } from './exercices/exercices/exercices.component';
     HeaderComponent,
     FooterComponent,
     InfoMsgComponent,
-    ExercicesComponent
+    ExercicesComponent,
+    LevelAssessComponent
   ],
   imports: [
     BrowserModule,

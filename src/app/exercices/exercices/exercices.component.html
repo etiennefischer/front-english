@@ -1,3 +1,7 @@
+<!--General and Exercice Level assessment-->
+
+<app-level-assess></app-level-assess>
+
 <!--      Debut du breadcrumbs pour suivi de l'exercice en cours-->
 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
   <ul>
@@ -14,19 +18,24 @@
 
   <div class="card-content">
     <div class="content">
+
       <strong>{{exercices[this.currentExercice].subject}}</strong><br><br>
       {{exercices[this.currentExercice].question1}}
       <br>
+
     </div>
   </div>
+
   <footer class="card-footer" >
     <a href="#" *ngFor="let reponse of exercices[this.currentExercice].options" (click)="onSelect(reponse)"
        class="card-footer-item">{{reponse}}</a>
 
   </footer>
+
   <footer class="notification is-info"  *ngIf="correctionText">
     {{correctionText}}
   </footer>
+
 </div>
 
 <!--Fin d'exercice-->

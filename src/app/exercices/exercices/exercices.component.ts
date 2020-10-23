@@ -43,17 +43,16 @@ export class ExercicesComponent implements OnInit {
       this.msg.clear();
       this.msg.add("Bonne réponse !", "0");
       this.resetCorrectionMsg();
+      return true;
     }else {
       this.msg.clear();
       this.msg.add("Mauvaise réponse !", "1");
       this.addCorrectionText();
-
+      return false;
     }
-
-    return true;
   }
-  // tslint:disable-next-line:typedef
-  isExerciceDone() {
+
+  isExerciceDone(): any {
     if (this.exercices.length <= this.currentExercice) {
       this.currentExercice = 0;
     }
