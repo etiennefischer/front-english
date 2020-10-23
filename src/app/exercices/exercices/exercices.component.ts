@@ -14,11 +14,12 @@ interface Answer {
 })
 export class ExercicesComponent implements OnInit {
   exercices = CHAPTER;
-  msg = InfoMsgService;
+
   currentExercice: number;
   selectedReponse: string;
   structure: any[];
-  constructor() {
+
+  constructor(private msg: InfoMsgService) {
     this.currentExercice = 0;
 
 
@@ -34,20 +35,21 @@ export class ExercicesComponent implements OnInit {
     this.checkAnswer();
     this.isExerciceDone();
     this.structure = this.breadcrumbsArray(this.currentExercice);
-    console.log(this.structure);
-    console.log(this.currentExercice);
-    console.log(1);
+
+
+
 
 
   }
   checkAnswer(): boolean {
 
     if (this.selectedReponse === this.exercices[this.currentExercice].answer){
-      console.log('Bonne réponse');
       this.currentExercice += 1;
-
-
-
+      this.msg.clear();
+      this.msg.add('Bonne réponse !', '0');
+    }else {
+      this.msg.clear();
+      this.msg.add('Mauvaise réponse !', '1');
     }
 
     return true;
