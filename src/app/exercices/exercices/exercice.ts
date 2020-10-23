@@ -1,5 +1,6 @@
 export interface ExerciceService {
   id: number;
+  score: number;
   subject: string;
   question1: string;
   options: [ string , string , string ];

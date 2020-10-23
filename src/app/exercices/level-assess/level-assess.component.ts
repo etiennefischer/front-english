@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LevelAssessService} from './level-assess.service';
 
 @Component({
   selector: 'app-level-assess',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LevelAssessComponent implements OnInit {
 
-  constructor() { }
+  constructor(public levelService: LevelAssessService) {
+
+  }
 
   ngOnInit(): void {
   }

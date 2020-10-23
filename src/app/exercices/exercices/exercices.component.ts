@@ -1,8 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ExerciceService} from './exercice';
-import { CHAPTER } from './../../../mock-chapter';
+import { CHAPTER } from '../../../myFakeAPI';
 import { InfoMsgService} from '../../_shared/info-msg/info-msg.service';
 import {delay} from 'rxjs/operators';
+import {LevelAssessService} from '../level-assess/level-assess.service';
+
 
 interface Answer {
   msg: InfoMsgService;
@@ -20,12 +22,13 @@ export class ExercicesComponent implements OnInit {
   correctionText: string;
   structure: any[];
 
-  constructor(private msg: InfoMsgService) {
+  constructor(private msg: InfoMsgService, private score: LevelAssessService) {
     this.currentExercice = 0;
 
   }
 
   ngOnInit(): void {
+    this.score.setBegin();
 
   }
 
@@ -42,6 +45,9 @@ export class ExercicesComponent implements OnInit {
       this.currentExercice += 1;
       this.msg.clear();
       this.msg.add("Bonne réponse !", "0");
+      this.score.onGoodAnswer();
+      console.log(this.score.score);
+
       this.resetCorrectionMsg();
       return true;
     }else {
