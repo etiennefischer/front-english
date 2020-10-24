@@ -33,6 +33,7 @@ export class ExercicesComponent implements OnInit {
   }
 
   onSelect(reponse: string): void {
+
     this.selectedReponse = reponse;
     this.checkAnswer();
     this.isExerciceDone();
@@ -40,13 +41,14 @@ export class ExercicesComponent implements OnInit {
 
   }
   checkAnswer(): boolean {
-
+    this.isExerciceDone();
     if (this.selectedReponse === this.exercices[this.currentExercice].answer){
-      this.currentExercice += 1;
+
       this.msg.clear();
       this.msg.add("Bonne réponse !", "0");
-      this.score.onGoodAnswer();
-      console.log(this.score.score);
+      this.score.onGoodAnswer(this.exercices[this.currentExercice].score);
+      this.currentExercice += 1;
+
 
       this.resetCorrectionMsg();
       return true;
@@ -54,13 +56,18 @@ export class ExercicesComponent implements OnInit {
       this.msg.clear();
       this.msg.add("Mauvaise réponse !", "1");
       this.addCorrectionText();
+      this.score.onWrongAnswer(this.exercices[this.currentExercice].score);
       return false;
     }
   }
 
   isExerciceDone(): any {
-    if (this.exercices.length <= this.currentExercice) {
+    console.log(this.currentExercice);
+    console.log(this.exercices.length);
+    if (this.exercices.length   === this.currentExercice) {
+      console.log("Exercice done !");
       this.currentExercice = 0;
+      this.score.onExerciceEnd(this.score.score, this.exercices.length);
     }
   }
   breadcrumbsArray(length: number): any[] {

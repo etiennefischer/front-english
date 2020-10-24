@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {timeout} from 'rxjs/operators';
 
 
 @Injectable({
@@ -11,6 +12,7 @@ export class InfoMsgService {
   add(message: string , typeOfMessage: string): void {
     // @ts-ignore
     this.messages.push( [ message , typeOfMessage ] );
+    // setTimeout(() => this.clear(), 5000);
   }
 
   clear(): void {
