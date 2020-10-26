@@ -18,13 +18,13 @@ export class LevelAssessService {
     this.score += score;
   }
   onWrongAnswer(score): any{
-    this.score = this.score - (score * 0.75);
+    this.score = this.score - (score / 2);
   }
   onExerciceEnd( score , numberOfQuestion ): any {
-    this.todayScore = this.todayScore + (score / numberOfQuestion)/10;
-    // if (this.todayScore > 4){
-    //   this.todayScore = 4;
-    // }
+    this.todayScore = this.todayScore + (score / numberOfQuestion) / 10;
+    if (this.todayScore > 4){
+      this.todayScore = 4;
+    }
     this.score = 0;
   }
 }
