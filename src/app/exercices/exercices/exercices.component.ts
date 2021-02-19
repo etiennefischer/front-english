@@ -4,6 +4,7 @@ import { CHAPTER } from '../../../myFakeAPI';
 import { InfoMsgService} from '../../_shared/info-msg/info-msg.service';
 import {delay} from 'rxjs/operators';
 import {LevelAssessService} from '../level-assess/level-assess.service';
+import {MemeService} from '../meme.service';
 
 
 interface Answer {
@@ -22,16 +23,14 @@ export class ExercicesComponent implements OnInit {
   correctionText: string;
   structure: any[];
 
-  constructor(private msg: InfoMsgService, private score: LevelAssessService) {
+  constructor(private msg: InfoMsgService, private score: LevelAssessService, private memeService: MemeService) {
     this.currentExercice = 0;
 
   }
-
   ngOnInit(): void {
     this.score.setBegin();
-
+    document.querySelector('#memePosition').innerHTML = this.memeService.getMeme();
   }
-
   onSelect(reponse: string): void {
 
     this.selectedReponse = reponse;
